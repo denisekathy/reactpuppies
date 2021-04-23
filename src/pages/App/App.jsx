@@ -4,10 +4,10 @@ import NewPuppyPage from "../NewPuppyPage/NewPuppyPage";
 import AuthPage from "../AuthPage/AuthPage"
 import PuppyHistoryPage from "../PuppyHistoryPage/PuppyHistoryPage"
 import './App.css';
-import NavBar from "../../components/NavBar";
+import NavBar from "../../components/NavBar/NavBar";
 
 export default function App() {
-  const [user, setUser ] = useState({});
+  const [user, setUser ] = useState(null);
   return (
     <main className="App">
       <NavBar />
