@@ -4,4 +4,4 @@ const usersCtrl = require('../../controllers/api/users')
 
 router.post('/', usersCtrl.create)
 
-module.exports = router
+module.exports = router;

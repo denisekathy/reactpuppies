@@ -5,7 +5,7 @@ export async function signUp(userData) {
       // Delegate the network request code to the users-api.js API module
       // which will ultimately return a JWT
       const token = await usersAPI.signUp(userData)
-      return token
+      return token;
     } catch {
       throw new Error('Invalid Sign Up')
     }
