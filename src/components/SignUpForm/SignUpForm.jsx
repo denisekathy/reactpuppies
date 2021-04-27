@@ -27,7 +27,8 @@ export default class SignUpForm extends Component {
           delete formData.error;
           delete formData.confirm;
           const user = await signUp(formData)
-          
+          //Baby Step
+          this.props.setUser(user);
           console.log(user)
          
           // The promise returned by the signUp service method 
