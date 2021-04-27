@@ -16,6 +16,10 @@ app.use(express.json());
 app.use(favicon(path.join(__dirname, "build", "favicon.ico")));
 app.use(express.static(path.join(__dirname, "build")));
 
+// Middleware to verify token and assign user object of payload to req.user
+// Be sure to mount before our routes
+app.use(require('./config/checkToken'));
+
 //Configure to use port 3001 insetead of 3000 during development to avoide collision with React's dev
 const port = process.env.PORT || 3001;
 app.listen(port, function () {
