@@ -20,7 +20,9 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--tan-4);
+
+  background-image: url("https://www.mikesdogstore.com/uploads/4/1/3/5/41350237/editor/web-132.jpg?1548874377");
+  background-size: cover;
   padding: 2vmin;
   height: 100vh;
 }
