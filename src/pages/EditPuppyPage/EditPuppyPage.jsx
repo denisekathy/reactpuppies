@@ -1,12 +1,11 @@
-import React, {  useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
-export default function NewPuppyPage(props) {
+export default function EditPuppyPage(props) {
+	const location = useLocation();
+
 	const [invalidForm, setValidForm] = useState(true);
-	const [formData, setFormData] = useState({
-		name: '',
-		breed: 'Mixed',
-		age: '0',
-	});
+	const [formData, setFormData] = useState(location.state.puppy);
 
 	const formRef = useRef();
 
@@ -18,7 +17,7 @@ export default function NewPuppyPage(props) {
 
 	const handleSubmit = e => {
 		e.preventDefault();
-		props.handleAddPuppy(formData);
+		props.handleUpdatePuppy(formData);
 	};
 
 	const handleChange = e => {
@@ -30,8 +29,8 @@ export default function NewPuppyPage(props) {
 
 	return (
 		<>
-			<h1>Add New Puppy</h1>
-			<form autoComplete='off' ref={formRef} onSubmit={handleSubmit}>
+			<h1>Edit Puppy</h1>
+			<form ref={formRef} autoComplete='off' onSubmit={handleSubmit}>
 				<div className='form-group'>
 					<label>Pup's Name (required)</label>
 					<input
@@ -61,9 +60,15 @@ export default function NewPuppyPage(props) {
 						onChange={handleChange}
 					/>
 				</div>
-				<button type='submit' className='btn' disabled={invalidForm}>
-					ADD PUPPY
+				<button
+					type='submit'
+					className='btn btn-xs'
+					disabled={invalidForm}
+				>
+					SAVE PUPPY
 				</button>
+				&nbsp;&nbsp;
+				<Link to='/'>CANCEL</Link>
 			</form>
 		</>
 	);

@@ -1,4 +1,4 @@
-import * as usersAPI from './users-api'
+import * as usersAPI from './puppies-api'
 
 export async function signUp(userData) {
     try {

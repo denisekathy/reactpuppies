@@ -1,14 +1,19 @@
-import React from "react";
-import * as usersService from "../../utilities/users-service";
+import React from 'react';
+import PuppyListItem from '../../components/PuppyListItem/PuppyListItem';
+import './PuppyHistoryPage.css';
 
-export default function PuppyHistoryPage() {
-  async function handleCheckToken() {
-    usersService.checkToken();
-  }
-  return (
-    <>
-      <h1>PuppyHistoryPage</h1>
-      <button onClick={handleCheckToken}>Check When My Login Expires</button>
-    </>
-  );
+function PuppyHistoryPage(props) {
+	return (
+		<>
+			<h1>Puppy History</h1>
+			<div >
+				{props.puppies.map(puppy => (
+					<PuppyListItem puppy={puppy} key={puppy._id}
+          handleDeletePuppy={props.handleDeletePuppy} />
+				))}
+			</div>
+		</>
+	);
 }
+
+export default PuppyHistoryPage;
